@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionPresenter {
     
-    fileprivate let urlString: String = "https://api.thecatapi.com/v1/images/search?limit=20&mime_types=jpg,png"
+    private let urlString: String = "https://api.thecatapi.com/v1/images/search?limit=20&mime_types=jpg,png"
     
     public func loadData(completion: @escaping([CatImageData])->()) {
         var images: [CatImageData] = []

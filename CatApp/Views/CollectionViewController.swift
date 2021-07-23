@@ -9,14 +9,14 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    fileprivate var catImages: [CatImageData] = []
+    private var catImages: [CatImageData] = []
     
-    fileprivate var choosedImageUrl: String?
+    private var choosedImageUrl: String?
         
-    fileprivate let collectionPresenter = CollectionPresenter()
+    private let collectionPresenter = CollectionPresenter()
     
-    fileprivate var sublayer = UIView()
-    fileprivate let activityIndicator = UIActivityIndicatorView()
+    private var sublayer = UIView()
+    private let activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

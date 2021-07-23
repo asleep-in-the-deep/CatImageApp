@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     
     public var choosedImageUrl: String?
     
-    fileprivate let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView()
 
     @IBOutlet weak var catImageView: UIImageView!
     
