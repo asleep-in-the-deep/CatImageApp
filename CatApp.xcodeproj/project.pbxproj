@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8443D53726C9AB0000F6FC2D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443D53626C9AB0000F6FC2D /* LoadingView.swift */; };
 		84A6BA3F26A56812000FA127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6BA3E26A56812000FA127 /* AppDelegate.swift */; };
 		84A6BA4126A56812000FA127 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6BA4026A56812000FA127 /* SceneDelegate.swift */; };
 		84A6BA4626A56812000FA127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A6BA4426A56812000FA127 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8443D53626C9AB0000F6FC2D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		84A6BA3B26A56812000FA127 /* CatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6BA3E26A56812000FA127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A6BA4026A56812000FA127 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				84A6BA5A26A589F0000FA127 /* CollectionViewCell.swift */,
 				84A6BA5426A587A6000FA127 /* CollectionViewController.swift */,
 				84A6BA5626A587C1000FA127 /* DetailViewController.swift */,
+				8443D53626C9AB0000F6FC2D /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				84A6BA3F26A56812000FA127 /* AppDelegate.swift in Sources */,
 				84A6BA5B26A589F0000FA127 /* CollectionViewCell.swift in Sources */,
 				84A6BA5726A587C1000FA127 /* DetailViewController.swift in Sources */,
+				8443D53726C9AB0000F6FC2D /* LoadingView.swift in Sources */,
 				84A6BA4126A56812000FA127 /* SceneDelegate.swift in Sources */,
 				84A6BA5526A587A6000FA127 /* CollectionViewController.swift in Sources */,
 			);

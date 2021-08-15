@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     
     public var choosedImageUrl: String?
     
-    private let activityIndicator = UIActivityIndicatorView()
+    let loadingView = LoadingView()
 
     @IBOutlet weak var catImageView: UIImageView!
     
@@ -25,12 +25,9 @@ class DetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func setImage() {
-        activityIndicator.style = .large
-        activityIndicator.center = view.center
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-                
+    private func setImage() {
+        loadingView.setLoadingView(view: self.view)
+        
         if choosedImageUrl != nil {
             DispatchQueue.global(qos: .background).async {
                 let url = URL(string: self.choosedImageUrl!)!
@@ -40,15 +37,10 @@ class DetailViewController: UIViewController {
                     self.catImageView.image = UIImage(data: data!)
                     
                     self.catImageView.contentMode = .scaleAspectFill
-                    self.stopLoadingAnimation()
+                    self.loadingView.removeLoadingView()
                 }
             }
         }
     }
     
-    fileprivate func stopLoadingAnimation() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-    }
-
 }

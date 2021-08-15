@@ -7,13 +7,14 @@
 
 import UIKit
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController, CollectionPresenterDelegate {
     
     private var catImages: [CatImageData] = []
     
     private var choosedImageUrl: String?
         
     private let collectionPresenter = CollectionPresenter()
+    private let loadingView = LoadingView()
     
     private var sublayer = UIView()
     private let activityIndicator = UIActivityIndicatorView()
@@ -21,40 +22,36 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateImages()
+        collectionPresenter.setViewDelegate(delegate: self)
+        updateCats()
     }
     
     @IBAction func updateTapped(_ sender: Any) {
-        updateImages()
+        updateCats()
     }
     
-    fileprivate func setLoadingView() {
-        sublayer = UIView(frame: self.view.bounds)
-        sublayer.backgroundColor = UIColor.systemBackground
-        sublayer.alpha = 0.7
-        view.addSubview(sublayer)
+    private func updateCats() {
+        loadingView.setLoadingView(view: self.view)
+        collectionPresenter.loadData()
+        loadingView.removeLoadingView()
+    }
+    
+    // MARK: - Collection Presenter Delegate
+    
+    func presentCats(cats: [CatImageData]) {
+        self.catImages = cats
         
-        activityIndicator.style = .large
-        activityIndicator.center = sublayer.center
-        sublayer.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-    
-    fileprivate func removeLoadingView() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-        sublayer.removeFromSuperview()
-    }
-    
-    fileprivate func updateImages() {
-        setLoadingView()
-        collectionPresenter.loadData { (images) in
-            DispatchQueue.main.async {
-                self.catImages = images
-                self.removeLoadingView()
-                self.collectionView.reloadData()
-            }
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Navigation
